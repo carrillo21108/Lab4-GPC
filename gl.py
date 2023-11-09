@@ -3,6 +3,8 @@
 #con OpenGL
 import glm
 
+import random
+
 #pip install PyOpenGL
 from OpenGL.GL import *
 from OpenGL.GL.shaders import compileProgram,compileShader
@@ -21,8 +23,6 @@ class Renderer(object):
         
         self.elapsedTime = 0.0
         self.target = glm.vec3(0,0,0)
-        
-        self.dirLight = glm.vec3(1,0,0)
         
         self.fatness = 0.0
         

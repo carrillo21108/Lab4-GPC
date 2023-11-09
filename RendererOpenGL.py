@@ -16,10 +16,10 @@ screen = pygame.display.set_mode((width,height),pygame.OPENGL|pygame.DOUBLEBUF)
 clock = pygame.time.Clock()
 
 rend = Renderer(screen)
-rend.setShaders(fat_vertex_shader,siren_shader)
+rend.setShaders(vertex_shader,siren_shader)
 
-modelo = Model(filename="models/model.obj",translate=glm.vec3(0,0,-5),rotation=glm.vec3(0,0,0),scale=glm.vec3(1,1,1))
-modelo.loadTexture("textures/model.bmp")
+modelo = Model(filename="models/toonRocket.obj",translate=glm.vec3(0,0,-5),rotation=glm.vec3(0,0,0),scale=glm.vec3(1,1,1))
+modelo.loadTexture("textures/toonRocket.bmp")
 
 rend.scene.append(modelo)
 
@@ -42,11 +42,13 @@ while isRunning:
                 rend.toggleFilledMode()
                 
             elif event.key==pygame.K_1:
-                rend.setShaders(vertex_shader,unlit_shader);
+                rend.setShaders(vertex_shader,siren_shader);
             elif event.key==pygame.K_2:
-                rend.setShaders(vertex_shader,gourad_shader);
+                rend.setShaders(vertex_shader,stripes_shader);
             elif event.key==pygame.K_3:
-                rend.setShaders(vertex_shader,toon_shader);
+                rend.setShaders(vertex_shader,pencil_shader);
+            elif event.key==pygame.K_4:
+                rend.setShaders(vertex_shader,dot_shader);
     
     if keys[K_d]:
         rend.camPosition.x += 5 * deltaTime #5 unidades por segundo
